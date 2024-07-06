@@ -23,3 +23,5 @@ export interface BarChartProps {
   };
   type: string;
 }
+
+

@@ -43,10 +43,10 @@ export const parseStringToData = (dataString: string) => {
 };
 
 export const downloadChart = (chartRef: any, extension: string) => {
-  html2canvas(chartRef.current).then((canvas) => {
+  html2canvas(chartRef.current).then((canvas) => {  
     canvas.toBlob((blob) => {
-      if (extension === 'png') saveAs(blob, 'chart.png');
-      else saveAs(blob, 'chart.jpg');
+      if (extension === 'png') saveAs(blob  || "", 'chart.png');
+      else saveAs(blob ||  "", 'chart.jpg');
     });
   });
 };

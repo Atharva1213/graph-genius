@@ -6,9 +6,13 @@ import { Underline } from './headling.styles';
 export default function headling({ title, size }: { title: string; size: string }) {
   return (
     <Stack gap={1}>
-      <Typography variant={size} component={size} sx={{ textAlign: 'center' }}>
-        {title}
-      </Typography>
+      {size === 'h3' ?
+        <Typography variant="h3" sx={{ textAlign: 'center' }}>
+          {title}
+        </Typography> : <Typography variant="h5" sx={{ textAlign: 'center' }}>
+          {title}
+        </Typography>
+      }
       <Underline />
     </Stack>
   );
