@@ -11,9 +11,9 @@ export interface BarChartProps {
     dLabel: string;
     PLabel: string;
     graphTitle: string;
-    legendAlign: 'start' | 'center' | 'end';
-    legendPosition: 'top' | 'bottom' | 'left' | 'right';
-    lineCurve: 'curved' | 'straight';
+    legendAlign: string;
+    legendPosition: string;
+    lineCurve: string;
     pointSize: number;
     showXAxisGridLines: boolean;
     showYAxisGridLines: boolean;
