@@ -13,13 +13,13 @@ const schema = z.object({
   PLabel: z.string().nonempty('Data Values are required'),
   dLabel: z.string().nonempty('Data Labels are required'),
   VLabel: z.string().nonempty('Data Values are required'),
-  pointSize: z.number().optional(),
-  legendPosition: z.string().optional(),
-  legendAlign: z.string().optional(),
-  lineCurve: z.string().optional(),
-  startYAxisFromZero: z.boolean().optional(),
-  showXAxisGridLines: z.boolean().optional(),
-  showYAxisGridLines: z.boolean().optional(),
+  pointSize: z.number(),
+  legendPosition: z.string(),
+  legendAlign: z.string(),
+  lineCurve: z.string(),
+  startYAxisFromZero: z.boolean(),
+  showXAxisGridLines: z.boolean(),
+  showYAxisGridLines: z.boolean(),
 });
 
 export default function useFormHook() {
