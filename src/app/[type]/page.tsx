@@ -1,6 +1,5 @@
 import React from 'react';
-import { redirect } from 'next/navigation';
-
+import { useRouter } from 'next/navigation'; 
 import { useFetch } from '@/hooks/useFetch/useFetch';
 import FormBuilderDetail from '@/components/builderDetails/builder';
 import FormBuilder from '@/components/formBuilder/formBuilder';
@@ -17,9 +16,13 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = ({ params }) => {
   const { data, isError } = useFetch(params?.type || ' ');
 
+  const router = useRouter(); 
+
   if (isError) {
-    redirect('/error');
+    router.push('/error');
+    return null;
   }
+
   const title = `${data?.name} Maker` || '';
   return (
     <MainContainer>
@@ -42,7 +45,6 @@ export function generateMetadata({ params }: { params: { type: string } }) {
   };
 }
 
-
 export async function getStaticPaths() {
   const types = ['type1', 'type2', 'type3']; 
   const paths = types.map((type) => ({
@@ -52,5 +54,5 @@ export async function getStaticPaths() {
   return {
     paths,
     fallback: false, 
-  }
+  };
 }
