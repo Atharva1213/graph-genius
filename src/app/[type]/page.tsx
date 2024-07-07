@@ -7,6 +7,16 @@ import Headling from '@/components/headling/headling';
 
 import { MainContainer } from './page.styles';
 
+
+export async function generateStaticParams() {
+  const types = ['type1', 'type2', 'type3']; 
+  const paths = types.map((type) => ({
+    params: { type },
+  }));
+
+  return paths;
+}
+
 interface DashboardProps {
   params: {
     type: string;
