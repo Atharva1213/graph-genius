@@ -89,3 +89,13 @@ export const ChartDiv = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)',
 }));
+
+export const ChartDivInside = styled(Box)(({ theme }) => ({
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignContent: 'center',
+  alignItems: 'center',
+}));
+

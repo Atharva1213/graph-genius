@@ -3,7 +3,6 @@
 import { useRef } from 'react';
 import DownloadIcon from '@mui/icons-material/Download';
 import { Button, Checkbox, MenuItem, Typography } from '@mui/material';
-
 import { downloadChart } from '@/types/common';
 import useFormHook from '@/hooks/useFormHook/useFormHook';
 
@@ -219,7 +218,7 @@ const FormBuilder: React.FC<FormBuilderProps> = ({ type }) => {
             Generate Bar Graph
           </Button>
         </NormalBox>
-        <NormalBox ref={chartRef}>{graphData && <BarChart data={graphData} type={type} />}</NormalBox>
+        <NormalBox >{graphData && <BarChart data={graphData} chartRef={chartRef} type={type} />}</NormalBox>
         <FlexBox>
           <DownloadButton
             variant="contained"
