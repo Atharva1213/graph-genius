@@ -1,21 +1,12 @@
 import React from 'react';
-import { useRouter } from 'next/navigation'; 
+import { redirect } from 'next/navigation';
+
 import { useFetch } from '@/hooks/useFetch/useFetch';
 import FormBuilderDetail from '@/components/builderDetails/builder';
 import FormBuilder from '@/components/formBuilder/formBuilder';
 import Headling from '@/components/headling/headling';
 
 import { MainContainer } from './page.styles';
-
-
-export async function generateStaticParams() {
-  const types = ['type1', 'type2', 'type3']; 
-  const paths = types.map((type) => ({
-    params: { type },
-  }));
-
-  return paths;
-}
 
 interface DashboardProps {
   params: {
@@ -26,13 +17,9 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = ({ params }) => {
   const { data, isError } = useFetch(params?.type || ' ');
 
-  const router = useRouter(); 
-
   if (isError) {
-    router.push('/error');
-    return null;
+    redirect('/error');
   }
-
   const title = `${data?.name} Maker` || '';
   return (
     <MainContainer>
