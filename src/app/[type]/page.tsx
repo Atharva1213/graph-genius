@@ -41,3 +41,16 @@ export function generateMetadata({ params }: { params: { type: string } }) {
     keywords: `graph maker, pie chart, line graph, ${data?.name}, Graph-genius`,
   };
 }
+
+
+export async function getStaticPaths() {
+  const types = ['type1', 'type2', 'type3']; 
+  const paths = types.map((type) => ({
+    params: { type },
+  }));
+
+  return {
+    paths,
+    fallback: false, 
+  }
+}
